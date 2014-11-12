@@ -9,6 +9,9 @@ ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 ff02::3 ip6-allhosts
 
+# Custom Hosts
+<%= @registry_ip %>  <%= @registry_domain %>
+
 # OpsWorks Layer State
 127.0.0.1 localhost.localdomain localhost
 127.0.1.1 <%= @localhost_name %>.localdomain <%= @localhost_name %>
@@ -25,6 +28,3 @@ ff02::3 ip6-allhosts
 <%= "# Unable to resolve IP '#{node.attributes.ip}' for hostname '#{node.name}'" %>
 <% end -%>
 <% end -%>
-
-# Custom Hosts
-<%= @registry_ip %> <%= @registry_domain %> 
