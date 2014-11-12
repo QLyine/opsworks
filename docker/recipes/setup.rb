@@ -12,8 +12,8 @@ script "install_certs" do
   echo "${IP}  ${DOMAIN} " >> /etc/hosts ;
   [[ ! -d $DIR ]] && mkdir -p $DIR ;
   [[ ! -d $ODIR ]] && mkdir -p $ODIR ;
-  wget -O ${DIR} http://${USER}:${PASS}@${DOMAIN}/${FILE};
-  wget -O ${ODIR} http://${USER}:${PASS}@${DOMAIN}/${FILE};
+  wget -O ${DIR}/${FILE}  http://${USER}:${PASS}@${DOMAIN}/${FILE};
+  wget -O ${ODIR}/${FILE} http://${USER}:${PASS}@${DOMAIN}/${FILE};
   update-ca-certificates;
   EOH
 end
