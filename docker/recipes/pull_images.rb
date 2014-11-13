@@ -19,3 +19,13 @@ node[:app][:dockers].each do |name, image|
     EOH
   end
 end
+script "install_certs" do
+  interpreter "bash" 
+  user "root"
+  code <<-EOH
+  DOMAIN="#{node[:app][:domain]}";
+  USER="#{node[:app][:username]}";
+  PASS="#{node[:app][:password]}";
+  docker login --username="${USER}" --password="${PASS}" --email="" ${DOMAIN} 
+  EOH
+end
