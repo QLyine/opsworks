@@ -6,6 +6,6 @@ script "login_to_registry" do
   USER="#{node[:app][:username]}";
   PASS="#{node[:app][:password]}";
   MAIL="NONE";
-  docker login --username="${USER}" --password="${PASS}" --email="$[MAIL}" ${DOMAIN} ;
+  docker login --username="${USER}" --password="${PASS}" --email="${MAIL}" ${DOMAIN} ;
   EOH
 end
