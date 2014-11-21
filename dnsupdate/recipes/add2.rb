@@ -9,7 +9,7 @@ route53_record "add_record" do
   zone_id               node[:app][:dns_zone_id]
   aws_access_key_id     node[:app][:custom_access_key]
   aws_secret_access_key node[:app][:custom_secret_key]
-  overwrite true
+  overwrite false
   action :create
 end
 
