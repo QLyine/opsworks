@@ -24,13 +24,13 @@
 #  EOH
 #end  
 
-node[:app][:dockers].each do |name, image|
+node[:app][:dockers].each do |docker|
   script "run_#{name}_container" do
     interpreter "bash"
     user "root"
     code <<-EOH
       DOMAIN="#{node[:app][:domain]}"
-      docker run -d -p 80:80 --name=#{name} ${DOMAIN}/#{image}
+      docker run -d #{docker[:arg]} --name=#{docker[:name]} ${DOMAIN}/#{docker[:image]}
     EOH
   end
 end
