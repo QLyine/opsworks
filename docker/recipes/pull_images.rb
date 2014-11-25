@@ -22,13 +22,13 @@ script "login_to_registry" do
 end
 
 # Pull latest Nginx
-node[:app][:dockers].each do |name, image|
+node[:app][:dockers_nginx].each do |docker|
   script "pull_images" do  
     interpreter "bash"
     user "root"
     code <<-EOH
       DOMAIN="#{node[:app][:domain]}"
-      docker pull ${DOMAIN}/#{image}
+      docker pull ${DOMAIN}/#{docker[:image]}
     EOH
   end
 end
