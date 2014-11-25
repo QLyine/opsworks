@@ -30,7 +30,7 @@ node[:app][:dockers].each do |docker|
     user "root"
     code <<-EOH
       DOMAIN="#{node[:app][:domain]}"
-      docker run -d #{docker[:arg]} --name=#{docker[:name]} ${DOMAIN}/#{docker[:image]}
+      docker run -d #{docker[:arg]} --name=#{docker[:name]} ${DOMAIN}/#{docker[:image]} /sbin/my_init
     EOH
   end
 end
