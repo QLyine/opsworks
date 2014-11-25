@@ -28,7 +28,7 @@ node[:app][:dockers_nginx].each do |docker|
     user "root"
     code <<-EOH
       DOMAIN="#{node[:app][:domain]}"
-      docker pull ${DOMAIN}/#{docker[:image]}
+      docker pull ${DOMAIN}/"#{docker[:image]}"
     EOH
   end
 end
