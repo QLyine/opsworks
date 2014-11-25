@@ -24,7 +24,7 @@
 #  EOH
 #end  
 
-node[:app][:dockers].each do |docker|
+node[:app][:dockers_db].each do |docker|
   script "run_#{name}_container" do
     interpreter "bash"
     user "root"
