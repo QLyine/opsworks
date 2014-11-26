@@ -14,7 +14,7 @@ if node["opsworks"]["instance"]["instance_type"] == "i2.xlarge"
   end
 
   execute "format parition" do
-    command "sudo mkfs.ext4 -f #{target}"
+    command "sudo mkfs.ext4 #{target}"
   end 
 
 else 
