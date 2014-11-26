@@ -10,7 +10,7 @@ if node["opsworks"]["instance"]["instance_type"] == "i2.xlarge"
    owner 'root'
    mode 00700
    action :create
-   not_if { FileTest.blockdev?(target) }
+   #not_if { FileTest.blockdev?(target) }
   end
 
   execute "format parition" do
