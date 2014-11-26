@@ -4,8 +4,8 @@ if node["opsworks"]["instance"]["instance_type"] == "i2.xlarge"
   mountLocation = "/srv/data/"
 
   directory mountLocation do
-   owner node['postgres']['user']
-   group node['postgres']['user']
+   owner node['root']['user']
+   group node['root']['user']
    mode 00700
    action :create
    not_if { FileTest.blockdev?(target) }
