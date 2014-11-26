@@ -1,4 +1,4 @@
-script "run_#{name}_container" do
+script "run_#{node[:app][:dockers_db][:name]}_container" do
   interpreter "bash"
   user "root"
   code <<-EOH
