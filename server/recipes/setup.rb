@@ -4,8 +4,10 @@ if node["opsworks"]["instance"]["instance_type"] == "i2.xlarge"
   mountLocation = "/srv/data/"
 
   directory mountLocation do
-   user  node[:app][:dockers_db][:volume_owner] 
-   group node[:app][:dockers_db][:volume_group]
+   #user  node[:app][:dockers_db][:volume_owner] 
+   #group node[:app][:dockers_db][:volume_group]
+   user 'root'
+   owner 'root'
    mode 00700
    action :create
    not_if { FileTest.blockdev?(target) }
