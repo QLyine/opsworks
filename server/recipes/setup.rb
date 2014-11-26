@@ -24,7 +24,7 @@ else
 
    # Unmount the ephemeral storage provided by Amazon
    execute "umount" do
-     command "sudo umount #{target}; mkfs.ext4 -f #{target}"
+     command "sudo umount #{target}; mkfs.ext4 #{target}"
    end
 
 end
