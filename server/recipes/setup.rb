@@ -11,7 +11,7 @@ if node["opsworks"]["instance"]["instance_type"] == "i2.xlarge"
    not_if { FileTest.blockdev?(target) }
   end
 
-  execute "format parition"
+  execute "format parition" do
     command "sudo mkfs.ext4 -f #{target}"
   end 
 
