@@ -21,12 +21,16 @@ script "login_to_registry" do
   EOH
 end
 
-# Pull latest Nginx
+# Pull latest db
 script "pull_images" do  
   interpreter "bash"
   user "root"
   code <<-EOH
-    DOMAIN="#{node[:app][:domain]}"
+    DOMAIN="#{node[:app][:domain]}" ;
+    DATA="#{node[:app][:dockers_db][:data]}" ;
+    [[ -n ${DATA} ]] && \ 
+    docker pull ${DOMAIN}/${DATA}
     docker pull ${DOMAIN}/#{node[:app][:dockers_db][:image]}
   EOH
 end
+
