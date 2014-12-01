@@ -6,6 +6,6 @@ script "run_#{node[:app][:dockers_db][:name]}_container" do
     ARGS="#{node[:app][:dockers_db][:arg]}"
     NAME="#{node[:app][:dockers_db][:name]}"
     IMAGE="#{node[:app][:dockers_db][:image]}"
-    docker run -d ${ARGS} --name=${NAME} ${DOMAIN}/${IMAGE} /sbin/my_init
+    docker run -d ${ARGS} ${DOMAIN}/${IMAGE} /sbin/my_init
   EOH
 end
