@@ -26,7 +26,11 @@ script "pull_images" do
   interpreter "bash"
   user "root"
   code <<-EOH
-    DOMAIN="#{node[:app][:domain]}"
+    DOMAIN="#{node[:app][:domain]}" ;
+    DATA="#{node[:app][:dockers_nginx][:app]" ;
+    [[ -n ${DATA} ]] && \ 
+    docker pull ${DOMAIN}/${DATA}
     docker pull ${DOMAIN}/#{node[:app][:dockers_nginx][:image]}
   EOH
 end
+
