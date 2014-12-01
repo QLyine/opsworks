@@ -8,8 +8,8 @@ script "run_#{node[:app][:dockers_nginx][:name]}_container" do
     IMAGE="#{node[:app][:dockers_nginx][:image]}";
     DATA="#{node[:app][:dockers_nginx][:data]}";
     if [ -n ${DATA} ] ; then 
-      ARGS="${ARGS} --volumes-from ws2data" 
-      docker run -d --named=${DATA} ${DOMAIN}/${DATA} 
+      ARGS="${ARGS} --volumes-from ${DATA}"
+      docker run -d --name=${DATA} ${DOMAIN}/${DATA} 
     fi 
     docker run -d ${ARGS} ${DOMAIN}/${IMAGE} /sbin/my_init
   EOH
