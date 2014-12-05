@@ -4,9 +4,6 @@
 [submodule "route53"]
 	path = route53
 	url = https://github.com/hw-cookbooks/route53.git
-[submodule "server/s3cmd"]
-	path = server/s3cmd
-	url = https://github.com/freerobby/s3cmd
 [submodule "s3cmd"]
 	path = s3cmd
 	url = https://github.com/freerobby/s3cmd
