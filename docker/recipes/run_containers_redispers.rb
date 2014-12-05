@@ -7,10 +7,10 @@ script "run_#{node[:app][:dockers_redispers][:name]}_container" do
     NAME="#{node[:app][:dockers_redispers][:name]}";
     IMAGE="#{node[:app][:dockers_redispers][:image]}";
     DATA="#{node[:app][:dockers_redispers][:data]}";
-    if [ -n ${DATA} ] ; then 
-      ARGS="${ARGS} --volumes-from ${DATA}"
-      docker run -d --name=${DATA} ${DOMAIN}/${DATA} 
-    fi 
+    #if [ -n ${DATA} ] ; then 
+    #  ARGS="${ARGS} --volumes-from ${DATA}"
+    #  docker run -d --name=${DATA} ${DOMAIN}/${DATA} 
+    #fi 
     docker run -d ${ARGS} ${DOMAIN}/${IMAGE} /sbin/my_init
   EOH
 end
