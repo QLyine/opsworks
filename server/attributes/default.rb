@@ -1,4 +1,4 @@
-default[:redis][:sysctl] = = Mash.new
+default[:redis][:sysctl] = Mash.new
 default[:redis][:sysctl]['vm.swappiness']=0
 default[:redis][:sysctl]['net.ipv4.tcp_sack']=1
 default[:redis][:sysctl]['net.ipv4.tcp_timestamps']=1
