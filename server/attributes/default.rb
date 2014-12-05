@@ -14,8 +14,8 @@ default[:redis][:sysctl]['net.ipv4.tcp_timestamps']=1
 default[:redis][:sysctl]['net.core.rmem_max']=16777216
 default[:redis][:sysctl]['net.core.2mem_max']=16777216
 
-default[:redis][:sysctl]['net.ipv4.tcp_rmem']=4096 524288 16777216
-default[:redis][:sysctl]['net.ipv4.tcp_wmem']=4096 524288 16777216
+default[:redis][:sysctl]['net.ipv4.tcp_rmem']='4096 524288 16777216'
+default[:redis][:sysctl]['net.ipv4.tcp_wmem']='4096 524288 16777216'
 
 
 
