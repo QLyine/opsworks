@@ -22,4 +22,6 @@ default[:generic][:sysctl]['net.ipv4.tcp_timestamps']=1
 default[:generic][:sysctl]['net.ipv4.tcp_syncookies']=1
 default[:generic][:sysctl]['net.ipv4.tcp_tw_reuse']=1
 
-
+# SWAP SPEC
+default['create-swap']['swap-location'] = '/var/swapfile'
+default['create-swap']['swap-size'] = 1 # In gigabytes
