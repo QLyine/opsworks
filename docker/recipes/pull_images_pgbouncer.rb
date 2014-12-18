@@ -9,16 +9,16 @@
 #  end
 #end  
 
-# Pull latest redispers
+# Pull latest pgboucner
 script "pull_images" do  
   interpreter "bash"
   user "root"
   code <<-EOH
     DOMAIN="#{node[:app][:domain]}" ;
-    DATA="#{node[:app][:dockers_redispers][:data]}" ;
+    DATA="#{node[:app][:dockers_pgboucner][:data]}" ;
     [[ -n ${DATA} ]] && \ 
     docker pull ${DOMAIN}/${DATA}
-    docker pull ${DOMAIN}/#{node[:app][:dockers_redispers][:image]}
+    docker pull ${DOMAIN}/#{node[:app][:dockers_pgboucner][:image]}
   EOH
 end
 
