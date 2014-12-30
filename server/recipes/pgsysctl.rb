@@ -1,5 +1,5 @@
 
-script "login_to_registry" do
+script "pgkernel" do
   interpreter "bash" 
   user "root"
   code <<-EOH
