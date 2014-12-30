@@ -7,8 +7,9 @@ script "pgkernel" do
   phys_pages=`getconf _PHYS_PAGES` ;
   shmall=`expr $phys_pages / 2` ;
   shmmax=`expr $shmall \* $page_size` ;
-  echo "kernel.shmmax=$shmmax" >> /etc/sysctl.d/99-postgres ;
-  echo "kernel.shmall=$shmall" >> /etc/sysctl.d/99-postgres ;
+  echo "kernel.shmmax=$shmmax" >> /etc/sysctl.conf ;
+  echo "kernel.shmall=$shmall" >> /etc/sysctl.conf ;
+  sysctl -p ;
   EOH
 end
 
