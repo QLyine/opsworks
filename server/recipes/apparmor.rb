@@ -1,4 +1,5 @@
-node node[:platform]
+
+case node[:platform]
 when "ubuntu"
   actions = node[:apparmor][:disable] ? [:stop, :disable] : [:start, :enable]
   service "apparmor" do
