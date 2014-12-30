@@ -7,8 +7,8 @@ script "login_to_registry" do
   phys_pages=`getconf _PHYS_PAGES` ;
   shmall=`expr $phys_pages / 2` ;
   shmmax=`expr $shmall \* $page_size` ;
-  sysctl -w kernel.shmmax=$shmmax ;
-  sysctl -w kernel.shmall=$shmall ;
+  echo "kernel.shmmax=$shmmax" >> /etc/sysctl.d/99-postgres ;
+  echo "kernel.shmall=$shmall" >> /etc/sysctl.d/99-postgres ;
   EOH
 end
 
