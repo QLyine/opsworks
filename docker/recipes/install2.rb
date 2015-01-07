@@ -30,7 +30,8 @@ if node['docker']['opts']
         provider Chef::Provider::Service::Upstart
       end
     end
-    action :restart
+    supports :restart => true
+    subscribes :restart, "template[/etc/default/docker]", :immediately
   end
 
 end
