@@ -9,23 +9,23 @@ script "update_docker_repo" do
   EOH
 end  
 
-#if node['docker']['opts'] 
-#
-#  directory "/mnt/dockerdata" do
-#    owner 'root'
-#    group 'root'
-#    mode '700'
-#    action :create
-#  end
-#
-#  template '/etc/default/docker' do 
-#    source "docker.sysconfig.erb"
-#    mode "0644"
-#  end
-#
-#  service "docker" do
-#    action :restart
-#  end
-#
-#end
+if node['docker']['opts'] 
+
+  directory "/mnt/dockerdata" do
+    owner 'root'
+    group 'root'
+    mode '700'
+    action :create
+  end
+
+  template '/etc/default/docker' do 
+    source "docker.sysconfig.erb"
+    mode "0644"
+  end
+
+  service "docker" do
+    action :restart
+  end
+
+end
 
