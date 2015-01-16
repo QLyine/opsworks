@@ -7,3 +7,6 @@
 [submodule "s3cmd"]
 	path = s3cmd
 	url = https://github.com/freerobby/s3cmd
+[submodule "cookbook-parted"]
+	path = cookbook-parted
+	url = https://github.com/retr0h/cookbook-parted.git
