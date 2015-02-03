@@ -8,7 +8,6 @@ lvm_volume_group 'vg00' do
 
   logical_volume 'swap' do
     size        '8G'
-    filesystem  'swap'
   end
 
   logical_volume 'dockerdata' do
