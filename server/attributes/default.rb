@@ -25,5 +25,6 @@ default[:generic][:sysctl]['net.ipv4.tcp_tw_reuse']=1
 # SWAP SPEC
 default['create-swap']['swap-location'] = '/var/fileswap'
 default['create-swap']['swap-size'] = 1 # In gigabytes
+default['create-swap']['swap-device'] = '/dev/vg00/swap'
 
 default[:apparmor][:disable] = true
