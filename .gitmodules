@@ -10,3 +10,6 @@
 [submodule "cookbook-parted"]
 	path = cookbook-parted
 	url = https://github.com/retr0h/cookbook-parted.git
+[submodule "lvm"]
+	path = lvm
+	url = https://github.com/opscode-cookbooks/lvm.git
