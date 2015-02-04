@@ -22,7 +22,7 @@ else
 
   execute 'create swapdevice' do 
     command <<-EOF.gsub(/^\s{4}/, '')
-      mswap -f #{node['create-swap']['swap-device']}
+      mkswap -f #{node['create-swap']['swap-device']}
     EOF
   end
 
