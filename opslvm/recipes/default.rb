@@ -18,7 +18,7 @@ lvm_volume_group 'vg00' do
   end 
 
   logical_volume 'swap' do
-    size         node.default['swap_tuning']['size'] 
+    size         node.default['swap_tuning']['size'].to_s
   end
 
   logical_volume 'dockerdata' do
