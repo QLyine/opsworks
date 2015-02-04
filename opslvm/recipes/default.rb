@@ -1,5 +1,16 @@
 include_recipe 'lvm::default'
 
+# Calculate swap size
+if node['swap_tuning']['size'].nil?
+  node.default['swap_tuning']['size'] =
+    Chef::SwapTuning.recommended_size_mb(node['memory']['total'])
+  if !node['swap_tuning']['minimum_size'].nil? &&
+     node['swap_tuning']['size'] < node['swap_tuning']['minimum_size']
+    node.default['swap_tuning']['size'] = node['swap_tuning']['minimum_size']
+  end
+end
+
+
 lvm_volume_group 'vg00' do
   
   if node[:opsworks][:instance][:instance_type] == "c3.xlarge"
@@ -7,7 +18,7 @@ lvm_volume_group 'vg00' do
   end 
 
   logical_volume 'swap' do
-    size        '8G'
+    size         node.default['swap_tuning']['size'] 
   end
 
   logical_volume 'dockerdata' do

@@ -29,7 +29,7 @@ else
   mount 'swap' do 
     action :enable
     device node['create-swap']['swap-device']
-    fstype swap
+    fstype 'swap'
     dump 0
     pass 0
   end
