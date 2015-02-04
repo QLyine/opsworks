@@ -13,9 +13,7 @@ end
 
 lvm_volume_group 'vg00' do
   
-  if node[:opsworks][:instance][:instance_type] == "c3.xlarge"
-    physical_volumes ['/dev/xvdb', '/dev/xvdc']
-  end 
+  physical_volumes node['physical_volumes']
 
   logical_volume 'swap' do
     size         node.default['swap_tuning']['size'].to_s
@@ -26,5 +24,6 @@ lvm_volume_group 'vg00' do
     filesystem  'ext4'
     mount_point '/mnt'
   end
+
 end
 
