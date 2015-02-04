@@ -11,7 +11,7 @@ lvm_volume_group 'vg00' do
   end
 
   logical_volume 'dockerdata' do
-    size        '72G'
+    size        '100%FREE'
     filesystem  'ext4'
     mount_point '/mnt'
   end
