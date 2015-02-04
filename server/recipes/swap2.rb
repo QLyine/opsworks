@@ -1,6 +1,6 @@
 swap_size_megs = (node['create-swap']['swap-size'] * 1024)
 
-if node['create-swap']['swap-device']
+unless node['create-swap']['swap-device']
 
   execute 'create swapfile' do
     command <<-EOF.gsub(/^\s{4}/, '')
