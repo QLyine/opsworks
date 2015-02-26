@@ -19,6 +19,3 @@
 [submodule "swap_tuning-cookbook"]
 	path = swap_tuning-cookbook
 	url = https://github.com/onddo/swap_tuning-cookbook
-[submodule "chef-reboot"]
-	path = chef-reboot
-	url = https://github.com/Afterglow/chef-reboot

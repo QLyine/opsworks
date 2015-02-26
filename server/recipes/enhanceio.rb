@@ -1,12 +1,3 @@
-include_recipe 'chef-reboot::default'
-
-reboot "now" do
-  action :nothing
-  reason "Cannot continue Chef run without a reboot."
-  delay_mins 1
-end
-
-
 %w{build-essential dkms lvm2 git}.each do |pkg|
   package pkg do
     action :install
@@ -22,7 +13,7 @@ execute "install_eio" do
     cd ../../CLI/;
     cp eio_cli /sbin/ ;
     cp eio_cli.8 /usr/share/man/man8 ;
+    reboot;
   EOH
-  notifies :reboot_now, 'reboot[now]', :immediately
 end
 
