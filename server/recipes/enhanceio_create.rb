@@ -1,5 +1,5 @@
 ssd = node['eio']['ssd']
-hhd = node['eio']['hdd']
+hdd = node['eio']['hdd']
 mode = node['eio']['mode']
 policy = node['eio']['reppolicy']
 name = node['eio']['name']
