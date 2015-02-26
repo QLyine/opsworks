@@ -1,9 +1,9 @@
 ssd = node['eio']['ssd']
-hdd = node['eio']['hdd']
 mode = node['eio']['mode']
 policy = node['eio']['reppolicy']
 name = node['eio']['name']
 bsize = node['eio']['bsize']
+hdd = node['eio']['hdd']
 
 execute "install_eio" do 
   command <<-EOH 
