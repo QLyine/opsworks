@@ -22,7 +22,7 @@ devList = [ "/dev/xvdf", "/dev/xvdg", "/dev/xvdh", "/dev/xvdi" ]
 execute "create raid" do
  command <<-EOH
    yes |sudo mdadm --create #{target} --level=0 -c256 --raid-devices=#{raidDevNumber} #{devList.join(" ")};
-   TYPE=`blkid -o value -s TYPE #{target}`
+   TYPE=`blkid -o value -s TYPE #{target}`;
    [[ -z $TYPE ]] && mkfs.xfs #{target}
  EOH
  not_if { FileTest.blockdev?(target) }
