@@ -11,12 +11,11 @@ if node['swap_tuning']['size'].nil?
 end
 
 
-lvm_volume_group 'vg00' do
-  
-  physical_volumes node['physical_volumes']
+if node[:opsworks][:instance][:hostname].start_with?("awsdb") || node[:opsworks][:instance][:hostname].start_with?("analyticsdbmaster")
 
-  if node[:opsworks][:instance][:hostname].start_with?("awsdb") || node[:opsworks][:instance][:hostname].start_with?("analyticsdbmaster")·
-    
+  lvm_volume_group 'vg00' do
+
+    physical_volumes node['physical_volumes']
     swapsize = node.default['swap_tuning']['size'] 
     # If we are on database node we want more space for cache than swap
     swapsize = swapsize / 4
@@ -24,13 +23,17 @@ lvm_volume_group 'vg00' do
     logical_volume 'swap' do
       size         swapsize.to_s
     end
-  
+
     # SSD cache fof HDD
     logical_volume 'cachelvm' do
       size        '100%FREE'
     end
 
-  else
+  end
+
+else
+
+  lvm_volume_group 'vg00' do
 
     logical_volume 'swap' do
       size         node.default['swap_tuning']['size'].to_s
@@ -45,4 +48,5 @@ lvm_volume_group 'vg00' do
   end
 
 end
+
 
