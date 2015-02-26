@@ -28,3 +28,11 @@ default['create-swap']['swap-size'] = 1 # In gigabytes
 default['create-swap']['swap-device'] = '/dev/vg00/swap'
 
 default[:apparmor][:disable] = true
+
+# Enhanceio
+default['eio']['ssd'] = '/dev/vg00/cachelvm'
+default['eio']['hdd'] = '/dev/md0'
+default['eio']['name'] = 'cache_root'
+default['eio']['reppolicy'] = 'lru'
+default['eio']['mode'] = 'wb'
+default['eio']['bsize'] = '4096'
