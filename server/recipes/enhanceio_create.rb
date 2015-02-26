@@ -1,9 +1,9 @@
-ssd = default['eio']['ssd']
-hhd = default['eio']['hdd']
-mode = default['eio']['mode']
-policy = default['eio']['reppolicy']
-name = default['eio']['name']
-bsize = default['eio']['bsize']
+ssd = node['eio']['ssd']
+hhd = node['eio']['hdd']
+mode = node['eio']['mode']
+policy = node['eio']['reppolicy']
+name = node['eio']['name']
+bsize = node['eio']['bsize']
 
 execute "install_eio" do 
   command <<-EOH 
