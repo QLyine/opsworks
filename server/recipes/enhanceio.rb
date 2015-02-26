@@ -1,3 +1,5 @@
+include_recipe 'chef-reboot::default'
+
 reboot "now" do
   action :nothing
   reason "Cannot continue Chef run without a reboot."
