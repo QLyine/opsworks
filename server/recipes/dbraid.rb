@@ -13,7 +13,7 @@ directory mountLocation do
   group 'root'
   mode 00755
   action :create
-  not_if { FileTest.blockdev?(target) }
+  not_if { FileTest.exists?(mountLocation) }
 end
 
 raidDevNumber = 4
