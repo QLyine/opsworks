@@ -15,14 +15,33 @@ lvm_volume_group 'vg00' do
   
   physical_volumes node['physical_volumes']
 
-  logical_volume 'swap' do
-    size         node.default['swap_tuning']['size'].to_s
-  end
+  if node[:opsworks][:instance][:hostname].start_with?("awsdb") || node[:opsworks][:instance][:hostname].start_with?("analyticsdbmaster")·
+    
+    swapsize = node.default['swap_tuning']['size'] 
+    # If we are on database node we want more space for cache than swap
+    swapsize = swapsize / 4
 
-  logical_volume 'dockerdata' do
-    size        '100%FREE'
-    filesystem  'ext4'
-    mount_point '/mnt'
+    logical_volume 'swap' do
+      size         swapsize.to_s
+    end
+  
+    # SSD cache fof HDD
+    logical_volume 'cachelvm' do
+      size        '100%FREE'
+    end
+
+  else
+
+    logical_volume 'swap' do
+      size         node.default['swap_tuning']['size'].to_s
+    end
+
+    logical_volume 'dockerdata' do
+      size        '100%FREE'
+      filesystem  'ext4'
+      mount_point '/mnt'
+    end
+
   end
 
 end
