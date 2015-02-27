@@ -35,6 +35,7 @@ else
 
   lvm_volume_group 'vg00' do
 
+    physical_volumes node['physical_volumes']
     logical_volume 'swap' do
       size         node.default['swap_tuning']['size'].to_s
     end
