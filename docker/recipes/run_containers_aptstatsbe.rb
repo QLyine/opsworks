@@ -11,7 +11,7 @@ script "run_#{node[:app][:dockers_aptstatsbe][:name]}_container" do
       ARGS="${ARGS} --volumes-from ${DATA}"
       docker run -d --name=${DATA} ${DOMAIN}/${DATA} 
     fi 
-    docker run -d ${ARGS} ${DOMAIN}/${IMAGE} /sbin/my_init
+    docker run -d ${ARGS} ${DOMAIN}/${IMAGE} bash
   EOH
 end
 
