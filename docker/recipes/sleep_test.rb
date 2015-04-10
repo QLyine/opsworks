@@ -14,7 +14,7 @@
 #end
 
 bash "sleep_#{node[:app][:dockers_aptstatsbe][:name]}_container" do 
-  timeout "3600"
+  timeout 3600
   code <<-EOH
     DOMAIN="#{node[:app][:domain]}";
     ARGS="#{node[:app][:dockers_aptstatsbe][:arg]}";
