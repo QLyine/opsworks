@@ -1,6 +1,6 @@
 default[:generic][:sysctl] = Mash.new
 # SWAP 
-default[:generic][:sysctl]['vm.swappiness']=0
+default[:generic][:sysctl]['vm.swappiness']=1
 # TCP
 default[:generic][:sysctl]['net.ipv4.tcp_congestion_control']='htcp'
 default[:generic][:sysctl]['net.core.rmem_max']=16777216
